@@ -11,7 +11,7 @@ export default function Team() {
 
   const [members, setMembers] = useState<any>([
     {
-      name: "Ana Belen Arista",
+      name: "Belen Arista",
       email: "anabelen.aristah@gmail.com",
       role: "admin",
       status: "active",
@@ -33,6 +33,12 @@ export default function Team() {
       email:"gabriela@gmail.com",
       role:"member",
       status:"active"
+    },
+    {
+      name:"Alejandra Arista",
+      email:"alejandra@gmail.com",
+      role:"member",
+      status:"removed"
     }
   ]);
 
