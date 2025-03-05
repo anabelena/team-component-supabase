@@ -89,4 +89,13 @@ export const columns: ColumnDef<any>[] = [
       }
     },
   },
+  {
+    id:"actions",
+    cell:({row})=>{
+      const user = row.original
+      return <div className="flex justify-end">
+          
+      </div>
+    }
+  }
 ];

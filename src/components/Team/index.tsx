@@ -6,7 +6,6 @@ import { DataTable } from "../Datatable";
 import { columns } from "./Members/Columns";  
 
 
-
 export default function Team() {
 
   const [members, setMembers] = useState<any>([
@@ -51,7 +50,6 @@ export default function Team() {
         </div>
         <New />
       </header>
-
       <main>
         <DataTable columns={columns} data={members} />
       </main>
