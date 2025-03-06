@@ -5,6 +5,7 @@ import { useHelpers } from "@/hooks/useHelpers";
 import { ColumnDef } from "@tanstack/react-table";
 import Roles from "./Options/Roles";
 import { Badge } from "@/components/ui/badge";
+import Options from "./Options";
 
 export const columns: ColumnDef<any>[] = [
   {
@@ -90,12 +91,14 @@ export const columns: ColumnDef<any>[] = [
     },
   },
   {
-    id:"actions",
-    cell:({row})=>{
-      const user = row.original
-      return <div className="flex justify-end">
-          
-      </div>
-    }
-  }
+    id: "actions",
+    cell: ({ row }) => {
+      const user = row.original;
+      return (
+        <div className="flex justify-end">
+          <Options {...{ user }} />
+        </div>
+      );
+    },
+  },
 ];

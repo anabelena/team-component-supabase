@@ -42,7 +42,7 @@ export default function Team() {
   ]);
 
   return (
-    <div className="grid gap-6 border rounded-lg shadow px-5 py-4 w-full max-w-[800px]">
+    <div className="grid gap-6 border rounded-lg shadow px-5 py-4 w-full max-w-[800px] ">
       <header className="flex items-center justify-between">
         <div className="grid gap-1">
           <h1 className="text-2xl"> Team </h1>
