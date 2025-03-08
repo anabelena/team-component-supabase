@@ -41,7 +41,7 @@ export default function Options({ user }: any) {
             {menu.map((item, index) => (
               <div key={index}>
                 <DropdownMenuItem
-                  className="flex gap-2 cursor-pointer bg-white hover:bg-amber-50"
+                  className="flex gap-2 cursor-pointer"
                   onClick={() => setSelected(item.key)} //when click selected = "remove"
                 >
                   {item.icon}

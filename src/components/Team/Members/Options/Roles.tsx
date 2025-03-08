@@ -22,11 +22,11 @@ export default function Roles({
       <SelectTrigger className="w-full capitalize">
         <SelectValue placeholder="Select a role" />
       </SelectTrigger>
-      <SelectContent className="bg-white">
+      <SelectContent>
         <SelectGroup>
           <SelectLabel>Roles</SelectLabel>
           {ROLES.map((role)=>(
-             <SelectItem key={role} value={role} className="capitalize hover:bg-gray-100 data-[state=checked]:bg-gray-300">{role}</SelectItem>
+             <SelectItem key={role} value={role} className="capitalize data-[state=checked]:bg-gray-300">{role}</SelectItem>
           ))}
         </SelectGroup>
       </SelectContent>
