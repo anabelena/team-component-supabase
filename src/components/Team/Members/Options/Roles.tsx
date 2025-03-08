@@ -16,7 +16,12 @@ export default function Roles({
 }: {
   selected?: string;
   setSelected?: (value: string) => void;
-}) {
+}) 
+  
+{
+
+  console.log(selected)
+
   return (
     <Select defaultValue={selected}  onValueChange={setSelected}>
       <SelectTrigger className="w-full capitalize">

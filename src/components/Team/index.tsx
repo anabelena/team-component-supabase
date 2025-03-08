@@ -2,12 +2,10 @@
 
 import { useState } from "react";
 import New from "./New";
-import { DataTable } from "../Datatable";     
-import { columns } from "./Members/Columns";  
-
+import { DataTable } from "../Datatable";
+import { columns } from "./Members/Columns/Columns";
 
 export default function Team() {
-
   const [members, setMembers] = useState<any>([
     {
       name: "Belen Arista",
@@ -28,17 +26,17 @@ export default function Team() {
       status: "removed",
     },
     {
-      name:"Gabriela Barrios",
-      email:"gabriela@gmail.com",
-      role:"member",
-      status:"active"
+      name: "Gabriela Barrios",
+      email: "gabriela@gmail.com",
+      role: "member",
+      status: "active",
     },
     {
-      name:"Alejandra Arista",
-      email:"alejandra@gmail.com",
-      role:"member",
-      status:"removed"
-    }
+      name: "Alejandra Arista",
+      email: "alejandra@gmail.com",
+      role: "member",
+      status: "removed",
+    },
   ]);
 
   return (

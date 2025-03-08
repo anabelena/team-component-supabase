@@ -17,8 +17,8 @@ export default function Options({ user }: any) {
 
   const menu = [
     {
-      title: "Remove member",
       key: "remove",
+      title: "Remove member",
       icon: <UserX className="w-[20px]" />,
     },
   ];

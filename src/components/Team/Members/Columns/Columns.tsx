@@ -1,11 +1,8 @@
-/* eslint-disable react-hooks/rules-of-hooks */
 "use client";
-
-import { useHelpers } from "@/hooks/useHelpers";
 import { ColumnDef } from "@tanstack/react-table";
-import Roles from "./Options/Roles";
 import { Badge } from "@/components/ui/badge";
-import Options from "./Options";
+import Options from "../Options";
+import RoleCell from "./RoleCell";
 
 export const columns: ColumnDef<any>[] = [
   {
@@ -30,32 +27,7 @@ export const columns: ColumnDef<any>[] = [
   {
     accessorKey: "role",
     header: "Role",
-    cell: ({ row }) => {
-      const { open, setOpen, loading, setLoading } = useHelpers();
-      const role: string = row.getValue("role");
-      const onRoleChanged = (v: string) => {
-        try {
-          setLoading(true);
-          alert(v);
-        } catch (error: any) {
-          throw new Error(error);
-        } finally {
-          setOpen(false);
-          setLoading(false);
-        }
-      };
-
-      return (
-        <div onClick={() => setOpen(!open)} className="w-[120px]">
-          {!open && (
-            <span className="text-sm text-neutral-500 capitalize">{role}</span>
-          )}
-          {open && (
-            <Roles selected={role} setSelected={(v) => onRoleChanged(v)} />
-          )}
-        </div>
-      );
-    },
+    cell: ({ row }) => <RoleCell row={row} />,
   },
   {
     accessorKey: "status",
