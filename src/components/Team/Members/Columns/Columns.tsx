@@ -70,7 +70,7 @@ export const columns: ColumnDef<any>[] = [
       const user = row.original;
       return (
         <div className="flex justify-end">
-          <Options user={user} />
+          <Options {...user} />
         </div>
       );
     },

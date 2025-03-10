@@ -4,6 +4,7 @@ import { Row } from "@tanstack/react-table";
 import Roles from "../Options/Roles";
 
 export default function RoleCell({ row }: { row: Row<TUser> }) {
+
   const { open, setOpen, loading, setLoading } = useHelpers();
 
   const role: string = row.getValue("role");
