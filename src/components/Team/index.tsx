@@ -6,6 +6,7 @@ import { DataTable } from "../Datatable";
 import { columns } from "./Members/Columns/Columns";
 
 export default function Team() {
+  
   const [members, setMembers] = useState<any>([
     {
       name: "Belen Arista",

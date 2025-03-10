@@ -23,11 +23,13 @@ export const columns: ColumnDef<any>[] = [
         </div>
       );
     },
+    enableSorting: true,
   },
   {
     accessorKey: "role",
     header: "Role",
     cell: ({ row }) => <RoleCell row={row} />,
+    enableSorting: true,
   },
   {
     accessorKey: "status",
@@ -68,7 +70,7 @@ export const columns: ColumnDef<any>[] = [
       const user = row.original;
       return (
         <div className="flex justify-end">
-          <Options {...{ user }} />
+          <Options user={user} />
         </div>
       );
     },
