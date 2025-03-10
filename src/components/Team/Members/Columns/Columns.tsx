@@ -70,9 +70,8 @@ export const columns: ColumnDef<TUser>[] = [
     id: "actions",
     cell: ({ row }) => {
       const user = row.original;
-      console.log("row original",row.original)
       return (
-        <div className="flex justify-end">
+        <div className="flex justify-center">
           <Options user={user} />
         </div>
       );
