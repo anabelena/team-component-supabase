@@ -3,11 +3,12 @@ import { ColumnDef } from "@tanstack/react-table";
 import { Badge } from "@/components/ui/badge";
 import Options from "../Options";
 import RoleCell from "./RoleCell";
+import { TUser } from "@/types/table";
 
-export const columns: ColumnDef<any>[] = [
+export const columns: ColumnDef<TUser>[] = [
   {
-    accessorKey: "name",
     header: "Name",
+    accessorKey: "name",
     cell: ({ row }) => {
       const name: string = row.getValue("name");
       const email: string = row.original.email;
@@ -26,14 +27,14 @@ export const columns: ColumnDef<any>[] = [
     enableSorting: true,
   },
   {
-    accessorKey: "role",
     header: "Role",
+    accessorKey: "role",
     cell: ({ row }) => <RoleCell row={row} />,
     enableSorting: true,
   },
   {
-    accessorKey: "status",
     header: "Status",
+    accessorKey: "status",
     cell: ({ row }) => {
       const status: string = row.getValue("status");
       switch (status) {
@@ -65,12 +66,14 @@ export const columns: ColumnDef<any>[] = [
     },
   },
   {
+    //id is unique when there's no accesorkey
     id: "actions",
     cell: ({ row }) => {
       const user = row.original;
+      console.log("row original",row.original)
       return (
         <div className="flex justify-end">
-          <Options {...user} />
+          <Options user={user} />
         </div>
       );
     },

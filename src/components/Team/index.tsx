@@ -13,30 +13,35 @@ export default function Team() {
       email: "anabelen.aristah@gmail.com",
       role: "admin",
       status: "active",
+      age:40,
     },
     {
       name: "Karlos Torrico",
       email: "karlos@gmail.com",
       role: "manager",
       status: "pending",
+      age:40,
     },
     {
       name: "Edward Arista",
       email: "edwardarista@gmail.com",
       role: "member",
       status: "removed",
+      age:40,
     },
     {
       name: "Gabriela Barrios",
       email: "gabriela@gmail.com",
       role: "member",
       status: "active",
+      age:40,
     },
     {
       name: "Alejandra Arista",
       email: "alejandra@gmail.com",
       role: "member",
       status: "removed",
+      age:40,
     },
   ]);
 

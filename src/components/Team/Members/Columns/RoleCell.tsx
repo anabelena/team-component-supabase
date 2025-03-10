@@ -4,7 +4,7 @@ import { Row } from "@tanstack/react-table";
 import Roles from "../Options/Roles";
 
 export default function RoleCell({ row }: { row: Row<TUser> }) {
-
+ 
   const { open, setOpen, loading, setLoading } = useHelpers();
 
   const role: string = row.getValue("role");
@@ -24,7 +24,7 @@ export default function RoleCell({ row }: { row: Row<TUser> }) {
   return (
     <div onClick={() => setOpen(!open)} className="w-[120px]">
       {!open && (
-        <span className="text-sm text-neutral-500 capitalize">{role}</span>
+        <span className="text-sm text-neutral-600 capitalize">{role}</span>
       )}
       {open && <Roles selected={role} setSelected={(v) => onRoleChanged(v)} />}
     </div>

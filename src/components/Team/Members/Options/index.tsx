@@ -25,7 +25,7 @@ export default function Options({ user }: any) {
 
   return (
     <div>
-      <Remove
+      <Remove 
         {...{
           user,
           open: selected === "remove",

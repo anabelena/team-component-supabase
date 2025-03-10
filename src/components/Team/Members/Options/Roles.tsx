@@ -16,22 +16,23 @@ export default function Roles({
 }: {
   selected?: string;
   setSelected?: (value: string) => void;
-}) 
-  
-{
-
-  console.log(selected)
-
+}) {
   return (
-    <Select defaultValue={selected}  onValueChange={setSelected}>
+    <Select defaultValue={selected} onValueChange={setSelected}>
       <SelectTrigger className="w-full capitalize">
         <SelectValue placeholder="Select a role" />
       </SelectTrigger>
       <SelectContent>
         <SelectGroup>
           <SelectLabel>Roles</SelectLabel>
-          {ROLES.map((role)=>(
-             <SelectItem key={role} value={role} className="capitalize data-[state=checked]:bg-gray-300">{role}</SelectItem>
+          {ROLES.map((role) => (
+            <SelectItem
+              key={role}
+              value={role}
+              className="capitalize data-[state=checked]:bg-neutral-200"
+            >
+              {role}
+            </SelectItem>
           ))}
         </SelectGroup>
       </SelectContent>
