@@ -8,7 +8,6 @@ import { useHelpers } from "@/hooks/useHelpers";
 import { supabase } from "@/lib/supabase";
 
 export default function Team() {
-
   const [team, setTeam] = useState({
     id: "a382e1e5-a3db-4ea9-b331-ac5be3d72015",
   });
@@ -19,31 +18,49 @@ export default function Team() {
 
   const fetchTeam = async () => {
     try {
-      setLoading(true)
-      
-      const { data, error }:any = await supabase
+      setLoading(true);
+
+      const { data, error } = await supabase
         .from("teams")
         .select("*,team_members(*)")
         .eq("id", "a382e1e5-a3db-4ea9-b331-ac5be3d72015")
-        .single()
+        .single();
 
-     
-      if (data) {
-        console.log('Data API',data)
-        const {team_members,...teamData} = data
-        setTeam(teamData)
-        setMembers(team_members)
+      if (error) {
+        console.log("Supabase error", error);
       }
-    } catch (error: any) {
-      throw new Error(error);
+
+      if (data) {
+        console.log("Data Supabase", data);
+        const { team_members, ...teamData } = data;
+        setTeam(teamData);
+        setMembers(team_members);
+      }
+    } catch (err) {
+      console.log("Unexpected error", err);
     } finally {
       setLoading(false);
     }
-  }
+  };
 
   useEffect(() => {
     fetchTeam();
-   
+    // Listen to inserts
+    const subscription = supabase
+      .channel("todos")
+      .on(
+        "postgres_changes",
+        {
+          event: "*",
+          schema: "public",
+          table: "team_members",
+          filter: `team_id=eq.${team.id}`,
+        },
+        () => {
+          fetchTeam();
+        }
+      )
+      .subscribe();
   }, []);
 
   return (
@@ -53,7 +70,7 @@ export default function Team() {
           <h1 className="text-2xl"> Team </h1>
           <p> Invite new members in your team.</p>
         </div>
-        {/* <New /> */}
+        <New team_id={team.id} />
       </header>
       <main>
         <DataTable columns={columns} data={members} />
