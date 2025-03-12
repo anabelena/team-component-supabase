@@ -2,19 +2,35 @@ import { useHelpers } from "@/hooks/useHelpers";
 import { TUser } from "@/types/table";
 import { Row } from "@tanstack/react-table";
 import Roles from "../Options/Roles";
+import { toast } from "sonner";
+import { supabase } from "@/lib/supabase";
 
 export default function RoleCell({ row }: { row: Row<TUser> }) {
- 
+  
   const { open, setOpen, loading, setLoading } = useHelpers();
 
   const role: string = row.getValue("role");
+  const id: string = row.original.id;
 
-  const onRoleChanged = (v: string) => {
+  const onRoleChanged = async (v: string) => {
     try {
       setLoading(true);
-      alert(v);
-    } catch (error: any) {
-      throw new Error(error);
+      const { data, error } = await supabase
+        .from("team_members")
+        .update({ role: v })
+        .eq("id", id)
+        .select("*");
+
+      if (error) {
+        console.log("Error Supabase Insert", error);
+      }
+
+      if (data) {
+        console.log(data);
+        toast.success("Role updated successfully");
+      }
+    } catch (err: any) {
+      throw new Error(err);
     } finally {
       setOpen(false);
       setLoading(false);
