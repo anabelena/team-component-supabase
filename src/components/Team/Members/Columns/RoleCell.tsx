@@ -1,13 +1,12 @@
 import { useHelpers } from "@/hooks/useHelpers";
-import { TUser } from "@/types/table";
+import { IMember } from "@/types/table";
 import { Row } from "@tanstack/react-table";
 import Roles from "../Options/Roles";
 import { toast } from "sonner";
 import { supabase } from "@/lib/supabase";
 
-export default function RoleCell({ row }: { row: Row<TUser> }) {
-  
-  const { open, setOpen, loading, setLoading } = useHelpers();
+export default function RoleCell({ row }: { row: Row<IMember> }) {
+  const { open, setOpen, setLoading } = useHelpers();
 
   const role: string = row.getValue("role");
   const id: string = row.original.id;

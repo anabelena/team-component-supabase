@@ -9,16 +9,30 @@ import {
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
 import { useHelpers } from "@/hooks/useHelpers";
+import { supabase } from "@/lib/supabase";
+import { toast } from "sonner";
 
-export default function Remove({ user, open, onClose }: any) {
- 
-  const { loading, setLoading } = useHelpers(); //loading=false 
+export default function Remove({ user, open, onClose }) {
+  const { loading, setLoading } = useHelpers();
 
-  const removeMember = () => {
+  const removeMember = async () => {
     try {
       setLoading(true);
-    } catch (error) {
+      const { data, error } = await supabase
+        .from("team_members")
+        .update({ status: "removed" })
+        .eq("id", user.id)
+        .select("*");
 
+      if (error) {
+        console.log("Error updating Supabase", error);
+      }
+
+      if (data) { 
+        toast.success("User successfully removed from team.");
+      }
+    } catch (err: any) {
+      throw new Error(err);
     } finally {
       setLoading(false);
     }
@@ -41,7 +55,9 @@ export default function Remove({ user, open, onClose }: any) {
           >
             Cancel
           </AlertDialogCancel>
-          <CustomButton {...{label:"confirm",loading,onClick:removeMember}} />
+          <CustomButton
+            {...{ label: "confirm", loading, onClick: removeMember }}
+          />
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>

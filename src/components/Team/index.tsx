@@ -10,6 +10,7 @@ import LoadingTeam from "../Loading/Team";
 
 export default function Team() {
   const [team, setTeam] = useState({
+    name:"Team",
     id: "a382e1e5-a3db-4ea9-b331-ac5be3d72015",
   });
 
@@ -72,7 +73,7 @@ export default function Team() {
     <div className="grid gap-6 border rounded-lg shadow px-5 py-4 w-full max-w-[800px] ">
       <header className="flex items-center justify-between">
         <div className="grid gap-1">
-          <h1 className="text-2xl"> Team </h1>
+          <h1 className="text-2xl"> {team.name || "Team"} </h1>
           <p> Invite new members in your team.</p>
         </div>
         <New team_id={team.id} />

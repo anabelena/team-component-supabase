@@ -5,9 +5,7 @@ export interface IUser {
     status:string,
 }
 
-
-// export interface IMember extends IUser {
-//     id:string,
-//     created_at:string,
-//     team_id:string,
-// }
+ export interface IMember extends IUser {
+     id:string,
+     team_id:string,
+ }
