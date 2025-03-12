@@ -8,74 +8,42 @@ import { useHelpers } from "@/hooks/useHelpers";
 import { supabase } from "@/lib/supabase";
 
 export default function Team() {
+
   const [team, setTeam] = useState({
     id: "a382e1e5-a3db-4ea9-b331-ac5be3d72015",
   });
 
-  const [members, setMembers] = useState<any>([
-    // {
-    //   name: "Belen Arista",
-    //   email: "anabelen.aristah@gmail.com",
-    //   role: "admin",
-    //   status: "active",
-    //   age:40,
-    // },
-    // {
-    //   name: "Karlos Torrico",
-    //   email: "karlos@gmail.com",
-    //   role: "manager",
-    //   status: "pending",
-    //   age:40,
-    // },
-    // {
-    //   name: "Edward Arista",
-    //   email: "edwardarista@gmail.com",
-    //   role: "member",
-    //   status: "removed",
-    //   age:40,
-    // },
-    // {
-    //   name: "Gabriela Barrios",
-    //   email: "gabriela@gmail.com",
-    //   role: "member",
-    //   status: "active",
-    //   age:40,
-    // },
-    // {
-    //   name: "Alejandra Arista",
-    //   email: "alejandra@gmail.com",
-    //   role: "member",
-    //   status: "removed",
-    //   age:40,
-    // },
-  ]);
+  const [members, setMembers] = useState<any>([]);
 
   const { loading, setLoading } = useHelpers();
 
   const fetchTeam = async () => {
     try {
-      setLoading(true);
-
-      const { data, error } = await supabase
+      setLoading(true)
+      
+      const { data, error }:any = await supabase
         .from("teams")
         .select("*,team_members(*)")
-        .eq("id", "a382e1e5-a3db-4ea9-b331-ac5be3d72015");
+        .eq("id", "a382e1e5-a3db-4ea9-b331-ac5be3d72015")
+        .single()
 
+     
       if (data) {
-        console.log("info", data);
-        // const { team_members, ...teamData } = data;
-        // setTeam(teamData);
-        // setMembers(team_members);
+        console.log('Data API',data)
+        const {team_members,...teamData} = data
+        setTeam(teamData)
+        setMembers(team_members)
       }
     } catch (error: any) {
       throw new Error(error);
     } finally {
       setLoading(false);
     }
-  };
+  }
 
   useEffect(() => {
     fetchTeam();
+   
   }, []);
 
   return (
