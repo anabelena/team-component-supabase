@@ -6,6 +6,7 @@ import { DataTable } from "../Datatable";
 import { columns } from "./Members/Columns/Columns";
 import { useHelpers } from "@/hooks/useHelpers";
 import { supabase } from "@/lib/supabase";
+import LoadingTeam from "../Loading/Team";
 
 export default function Team() {
   const [team, setTeam] = useState({
@@ -62,6 +63,10 @@ export default function Team() {
       )
       .subscribe();
   }, []);
+
+
+  if (loading) return <LoadingTeam/>
+
 
   return (
     <div className="grid gap-6 border rounded-lg shadow px-5 py-4 w-full max-w-[800px] ">
