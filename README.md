@@ -62,7 +62,11 @@ This component can be used to display team member details dynamically by fetchin
 
 ## Screenshots 📷
 
-![Team Component Screenshot](path/to/your/screenshot.png)
+![Team Component Screenshot](https://smfyqeommefnkigxyivb.supabase.co/storage/v1/object/public/team-screenshots//team_home.png)
+![Add New Member Screenshot](https://smfyqeommefnkigxyivb.supabase.co/storage/v1/object/public/team-screenshots//team_add_member.png)
+![Update Role Screenshot](https://smfyqeommefnkigxyivb.supabase.co/storage/v1/object/public/team-screenshots//team_member_options.png)
+![Member Options](https://smfyqeommefnkigxyivb.supabase.co/storage/v1/object/public/team-screenshots//team_options.png)
+![Remove Member Screenshot](https://smfyqeommefnkigxyivb.supabase.co/storage/v1/object/public/team-screenshots//team_remove_member.png)
 
 ## Contributing 👇🏼
 
