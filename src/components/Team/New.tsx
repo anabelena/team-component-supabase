@@ -15,6 +15,8 @@ import { useHelpers } from "@/hooks/useHelpers";
 import { useState } from "react";
 import CustomButton from "../CustomButton";
 import Roles from "./Members/Options/Roles";
+import { supabase } from "@/lib/supabase";
+import { toast } from "sonner";
 
 export default function NewMember({ team_id }: { team_id: string }) {
   const { open, setOpen, loading, setLoading } = useHelpers();
@@ -27,16 +29,20 @@ export default function NewMember({ team_id }: { team_id: string }) {
   const saveMember = async () => {
     try {
       setLoading(true);
-      // const { data, error } = await supabase
-      //   .from('team_members')
-      //   .insert({ ...member, team_id })
-      //   .select();
+      const { data, error } = await supabase
+        .from("team_members")
+        .insert({ ...member, team_id })
+        .select();
 
-      // if (data) {
-      //   toast.success("Team members successfully added.")
-      // }
-    } catch (error: any) {
-      throw new Error(error);
+      if (error){
+        console.log("Supabase Error",error)
+      }
+
+      if (data) {
+        toast.success("Team members successfully added.");
+      }
+    } catch (err:any) {
+      throw new Error(err);
     } finally {
       setOpen(false);
       setLoading(false);
