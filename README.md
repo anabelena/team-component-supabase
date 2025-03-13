@@ -40,7 +40,10 @@ This project is a **Team Component** built using **Next.js** and **Supabase**. I
 4. Set up Supabase:
 
    - Create a project on [Supabase](https://supabase.com/).
-   - Set up your database schema and create a table for team members (with fields like `name`, `role`, and `status`).
+   - Set up your database schema and create a table for team and team members.
+
+     ![Database Screenshot](https://smfyqeommefnkigxyivb.supabase.co/storage/v1/object/public/team-screenshots//database.png)
+
    - Get your Supabase credentials (API URL and anon key) and add them to your `.env` file as follows:
 
      ```env
