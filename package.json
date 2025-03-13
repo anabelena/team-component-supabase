@@ -1,5 +1,6 @@
 {
   "name": "team-component-supbase",
+  "author":"Belen Arista",
   "version": "0.1.0",
   "private": true,
   "scripts": {
