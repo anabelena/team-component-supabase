@@ -2,12 +2,12 @@
 
 ## Description 📝
 
-This project is a **Team Component** built using **React** and **Supabase**. It showcases how to integrate a team member's information (such as name, role, and image) into a web component, utilizing Supabase as the backend for storing and managing the team members' data.
+This project is a **Team Component** built using **Next.js** and **Supabase**. It showcases how to integrate a team member's information (such as name, role, and status) into a web component, utilizing Supabase as the backend for storing and managing the team members' data.
 
 ## Features 🛠️
 
-- Display a list of team members with images and details.
-- Uses Supabase for managing the database and storing images.
+- Display a list of team members.
+- Uses Supabase for managing the database.
 - Responsive layout for a seamless user experience on various screen sizes.
 
 ## Technologies Used 👩🏻‍💻
@@ -40,7 +40,7 @@ This project is a **Team Component** built using **React** and **Supabase**. It 
 4. Set up Supabase:
 
    - Create a project on [Supabase](https://supabase.com/).
-   - Set up your database schema and create a table for team members (with fields like `name`, `role`, and `image_url`).
+   - Set up your database schema and create a table for team members (with fields like `name`, `role`, and `status`).
    - Get your Supabase credentials (API URL and anon key) and add them to your `.env` file as follows:
 
      ```env
